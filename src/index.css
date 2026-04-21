@@ -1,0 +1,675 @@
+/* =============================================
+   TRACKON DESIGN SYSTEM — Light Professional Theme
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors — Light Professional */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-tertiary: #e2e8f0;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --card-shadow-hover: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.04);
+
+  /* Accent — Teal */
+  --accent: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-light: #ccfbf1;
+  --accent-glow: rgba(13, 148, 136, 0.2);
+  --accent-subtle: rgba(13, 148, 136, 0.06);
+  --accent-border: rgba(13, 148, 136, 0.3);
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  /* Semantic */
+  --success: #16a34a;
+  --warning: #d97706;
+  --error: #dc2626;
+  --gold: #f59e0b;
+  --whatsapp: #25d366;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing */
+  --section-padding: 100px 0;
+  --container-max: 1200px;
+
+  /* Border Radius */
+  --radius-card: 16px;
+  --radius-btn: 10px;
+  --radius-pill: 9999px;
+  --radius-input: 10px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.4s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Container */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section */
+.section {
+  padding: var(--section-padding);
+  position: relative;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Section separator */
+.section-border {
+  border-top: 1px solid var(--card-border);
+}
+
+/* Badge / Pill */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--accent-light);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-btn);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border: none;
+  outline: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.35);
+  transform: translateY(-1px) scale(1.02);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--card-border);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+.btn-lg {
+  padding: 16px 36px;
+  font-size: 17px;
+}
+
+/* Section Heading */
+.section-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin-top: 12px;
+}
+
+/* Orb decorations — very subtle on light bg */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Card base */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--accent-border);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Trust badges */
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.trust-badge .check {
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 80px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  :root {
+    --section-padding: 60px 0;
+  }
+  .btn-lg {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 14px;
+  }
+  :root {
+    --section-padding: 48px 0;
+  }
+  .section-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* ── TrackON Screenshot Layout System ──────────────────────── */
+
+/* Float animations */
+@keyframes floatScreen {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50%       { transform: translateY(-14px) rotate(-1deg); }
+}
+
+@keyframes floatPhone1 {
+  0%, 100% { transform: rotate(-4deg) translateY(20px); }
+  50%       { transform: rotate(-4deg) translateY(6px); }
+}
+
+@keyframes floatPhone2 {
+  0%, 100% { transform: rotate(3deg) translateY(-20px); }
+  50%       { transform: rotate(3deg) translateY(-34px); }
+}
+
+/* Feature row grid */
+.feature-row {
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  gap: 48px;
+  align-items: center;
+  padding: 100px 0;
+}
+
+.feature-row.screenshot-left {
+  grid-template-columns: 55fr 45fr;
+}
+
+@media (min-width: 1025px) {
+  .feature-row.screenshot-left .text-column {
+    order: 2;
+  }
+  .feature-row.screenshot-left .screenshot-column {
+    order: 1;
+  }
+}
+
+/* Screenshot column */
+.screenshot-column {
+  width: 100%;
+  position: relative;
+}
+
+.screenshot-column img {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  max-width: none !important;
+  min-width: unset !important;
+}
+
+/* Text column */
+.text-column {
+  max-width: 480px;
+}
+
+/* Background glow orb behind screenshots */
+.screenshot-glow {
+  position: absolute;
+  width: 70%;
+  height: 60%;
+  background: radial-gradient(
+    ellipse,
+    rgba(13, 148, 136, 0.13) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* Browser chrome frame wrapper */
+.chrome-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1a1a2e;
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(13, 148, 136, 0.25),
+    0 25px 50px rgba(0, 0, 0, 0.45),
+    0 0 60px rgba(13, 148, 136, 0.12),
+    0 0 100px rgba(13, 148, 136, 0.06);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
+}
+
+.chrome-frame:hover {
+  box-shadow:
+    0 0 0 1px rgba(13, 148, 136, 0.5),
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(13, 148, 136, 0.25),
+    0 0 140px rgba(13, 148, 136, 0.12);
+  transform: translateY(-6px) scale(1.015);
+}
+
+/* Chrome top bar (dots row) */
+.chrome-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px;
+  background: #1a1a2e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  min-height: 44px;
+}
+
+.chrome-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chrome-url {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: monospace;
+  letter-spacing: 0.02em;
+  margin-left: 8px;
+}
+
+/* Screenshot image inside chrome */
+.chrome-screenshot {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+/* Feature label badge (Features page) */
+.screenshot-badge {
+  display: inline-block;
+  background: rgba(13, 148, 136, 0.12);
+  border: 1px solid rgba(13, 148, 136, 0.35);
+  color: #0d9488;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+/* Phone frame for mobile section */
+.phone-frame {
+  border: 8px solid #1e293b;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(13, 148, 136, 0.3),
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(13, 148, 136, 0.15);
+  transition: box-shadow 0.4s ease;
+}
+
+.phone-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+  display: block;
+}
+
+.phone-frame:hover {
+  box-shadow:
+    0 0 0 1px rgba(13, 148, 136, 0.55),
+    0 35px 70px rgba(0, 0, 0, 0.6),
+    0 0 90px rgba(13, 148, 136, 0.28);
+}
+
+/* Hero screenshot specific */
+.hero-screenshot-wrap {
+  width: 100%;
+  animation: floatScreen 5s ease-in-out infinite;
+}
+
+.hero-chrome-frame {
+  box-shadow:
+    0 0 0 1px rgba(13, 148, 136, 0.3),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(13, 148, 136, 0.15),
+    0 0 120px rgba(13, 148, 136, 0.08);
+}
+
+.hero-chrome-frame:hover {
+  box-shadow:
+    0 0 0 1px rgba(13, 148, 136, 0.55),
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    0 0 100px rgba(13, 148, 136, 0.35),
+    0 0 160px rgba(13, 148, 136, 0.15);
+  transform: scale(1.02) !important;
+}
+
+/* ── Hero Grid ────────────────────────────────────────────── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 45fr 55fr;
+    gap: 48px;
+  }
+}
+
+/* ── TABLET (1024px and below) ──────────────────────────── */
+@media (max-width: 1024px) {
+  .feature-row,
+  .feature-row.screenshot-left {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 72px 0;
+  }
+
+  .text-column {
+    max-width: 100%;
+    order: 1;
+    text-align: left;
+  }
+
+  .screenshot-column {
+    order: 2;
+    width: 100%;
+  }
+
+  .chrome-frame {
+    border-radius: 14px;
+  }
+}
+
+/* ── MOBILE (768px and below) ───────────────────────────── */
+@media (max-width: 768px) {
+  .feature-row,
+  .feature-row.screenshot-left {
+    gap: 28px;
+    padding: 56px 0;
+  }
+
+  /* Screenshot bleeds to near full screen width */
+  .screenshot-column {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  /* Chrome frame shrinks proportionally */
+  .chrome-frame {
+    border-radius: 12px;
+    box-shadow:
+      0 0 0 1px rgba(13, 148, 136, 0.3),
+      0 16px 40px rgba(0, 0, 0, 0.5),
+      0 0 50px rgba(13, 148, 136, 0.15),
+      0 0 80px rgba(13, 148, 136, 0.08);
+  }
+
+  /* Chrome top bar scales down */
+  .chrome-bar {
+    padding: 10px 12px;
+    min-height: 38px;
+    gap: 6px;
+  }
+
+  .chrome-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .chrome-url {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  /* Screenshot image — full width, no crop */
+  .chrome-screenshot {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Glow orb — smaller on mobile */
+  .screenshot-glow {
+    width: 60%;
+    height: 50%;
+    filter: blur(30px);
+  }
+
+  /* Feature badge label on Features page */
+  .screenshot-badge {
+    font-size: 12px;
+    padding: 5px 14px;
+  }
+
+  /* Hero screenshot — no float animation on mobile 
+     (saves battery and prevents layout shift) */
+  .hero-screenshot-wrap {
+    animation: none;
+    width: 100%;
+  }
+
+  .hero-chrome-frame {
+    box-shadow:
+      0 0 0 1px rgba(13, 148, 136, 0.35),
+      0 20px 50px rgba(0, 0, 0, 0.55),
+      0 0 60px rgba(13, 148, 136, 0.18);
+  }
+}
+
+/* ── SMALL MOBILE (480px and below) ────────────────────── */
+@media (max-width: 480px) {
+  .feature-row,
+  .feature-row.screenshot-left {
+    padding: 44px 0;
+    gap: 24px;
+  }
+
+  .chrome-bar {
+    padding: 8px 10px;
+    min-height: 34px;
+  }
+
+  .chrome-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  /* Disable hover effects on touch devices */
+  .chrome-frame:hover {
+    transform: none;
+    box-shadow:
+      0 0 0 1px rgba(13, 148, 136, 0.3),
+      0 16px 40px rgba(0, 0, 0, 0.5),
+      0 0 50px rgba(13, 148, 136, 0.15);
+  }
+
+  .phone-frame:hover {
+    box-shadow:
+      0 0 0 1px rgba(13, 148, 136, 0.3),
+      0 30px 60px rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(13, 148, 136, 0.15);
+  }
+}
+
+/* ── Touch device tap feedback ──────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove all hover transforms on touch devices */
+  .chrome-frame:hover {
+    transform: none;
+    box-shadow:
+      0 0 0 1px rgba(13, 148, 136, 0.3),
+      0 16px 40px rgba(0, 0, 0, 0.5),
+      0 0 50px rgba(13, 148, 136, 0.15),
+      0 0 80px rgba(13, 148, 136, 0.08);
+  }
+
+  .phone-frame:hover {
+    box-shadow:
+      0 0 0 1px rgba(13, 148, 136, 0.3),
+      0 30px 60px rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(13, 148, 136, 0.15);
+    transform: none;
+  }
+
+  /* Add tap active state instead */
+  .chrome-frame:active {
+    transform: scale(0.99);
+    box-shadow:
+      0 0 0 1px rgba(13, 148, 136, 0.5),
+      0 10px 30px rgba(0, 0, 0, 0.6),
+      0 0 50px rgba(13, 148, 136, 0.25);
+    transition: all 0.15s ease;
+  }
+
+  /* Disable float animation on touch to save battery */
+  .hero-screenshot-wrap {
+    animation: none !important;
+  }
+
+  .phone-frame:nth-child(1) {
+    animation: none !important;
+  }
+
+  .phone-frame:nth-child(2) {
+    animation: none !important;
+  }
+}
+
