@@ -12,7 +12,7 @@ const footerLinks = {
   Company: [
     { label: 'About', to: '/about' },
     { label: 'Contact', to: '/contact' },
-    { label: 'Privacy Policy', to: '#' },
+    { label: 'Privacy Policy', to: '/privacy-policy' },
     { label: 'Terms of Service', to: '#' },
   ],
   Resources: [
@@ -115,7 +115,7 @@ export default function Footer() {
             © 2025 TrackON. Made with <Heart size={13} style={{ display: 'inline', color: '#ef4444', margin: '0 3px' }} /> in India.
           </p>
           <div style={{ display: 'flex', gap: 24 }}>
-            <a href="#" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }} className="footer-link">Privacy</a>
+            <Link to="/privacy-policy" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }} className="footer-link">Privacy</Link>
             <a href="#" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }} className="footer-link">Terms</a>
           </div>
         </div>
